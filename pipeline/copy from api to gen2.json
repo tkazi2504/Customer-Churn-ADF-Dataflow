@@ -188,7 +188,7 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"load": {
-								"value": "@activity('Lookup1').output.value[0].filename\n",
+								"value": "@activity('Get filename').output.value[0].filename",
 								"type": "Expression"
 							}
 						}
@@ -200,7 +200,7 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"filename": {
-								"value": "@activity('Lookup1').output.value[0].filename",
+								"value": "@activity('Get filename').output.value[0].filename",
 								"type": "Expression"
 							}
 						}

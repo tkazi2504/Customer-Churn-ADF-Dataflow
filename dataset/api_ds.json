@@ -16,7 +16,7 @@
 			"location": {
 				"type": "HttpServerLocation",
 				"relativeUrl": {
-					"value": "tkazi2504/CustomerChurn-Azure-Project/refs/heads/main/Dataset/@{dataset().load}",
+					"value": "tkazi2504/Customer-Churn-ADF-Dataflow/refs/heads/main/Datafiles/@{dataset().load}",
 					"type": "Expression"
 				}
 			},

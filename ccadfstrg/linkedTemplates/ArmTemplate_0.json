@@ -379,7 +379,10 @@
 								"parameters": {},
 								"datasetParameters": {
 									"StagingData": {
-										"filename": "@activity('Lookup1').output.value[0].filename"
+										"filename": {
+											"value": "@activity('Getfilename').output.value[0].filename",
+											"type": "Expression"
+										}
 									},
 									"presentationlayer": {}
 								}

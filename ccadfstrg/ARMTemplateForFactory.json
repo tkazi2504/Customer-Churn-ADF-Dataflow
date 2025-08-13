@@ -51,7 +51,7 @@
 						"type": "ExecuteDataFlow",
 						"dependsOn": [
 							{
-								"activity": "Copy data1",
+								"activity": "Copy API to Staging",
 								"dependencyConditions": [
 									"Succeeded"
 								]
@@ -150,7 +150,7 @@
 						]
 					},
 					{
-						"name": "Lookup1",
+						"name": "Get filename",
 						"type": "Lookup",
 						"dependsOn": [],
 						"policy": {
@@ -182,11 +182,11 @@
 						}
 					},
 					{
-						"name": "Copy data1",
+						"name": "Copy API to Staging",
 						"type": "Copy",
 						"dependsOn": [
 							{
-								"activity": "Lookup1",
+								"activity": "Get filename",
 								"dependencyConditions": [
 									"Succeeded"
 								]
@@ -238,7 +238,7 @@
 								"type": "DatasetReference",
 								"parameters": {
 									"load": {
-										"value": "@activity('Lookup1').output.value[0].filename\n",
+										"value": "@activity('Get filename').output.value[0].filename",
 										"type": "Expression"
 									}
 								}
@@ -250,7 +250,7 @@
 								"type": "DatasetReference",
 								"parameters": {
 									"filename": {
-										"value": "@activity('Lookup1').output.value[0].filename",
+										"value": "@activity('Get filename').output.value[0].filename",
 										"type": "Expression"
 									}
 								}

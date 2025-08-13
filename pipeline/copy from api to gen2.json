@@ -101,7 +101,7 @@
 				]
 			},
 			{
-				"name": "Get filename",
+				"name": "Getfilename",
 				"type": "Lookup",
 				"dependsOn": [],
 				"policy": {
@@ -136,7 +136,7 @@
 				"type": "Copy",
 				"dependsOn": [
 					{
-						"activity": "Get filename",
+						"activity": "Getfilename",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -188,7 +188,7 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"load": {
-								"value": "@activity('Get filename').output.value[0].filename",
+								"value": "@activity('Getfilename').output.value[0].filename",
 								"type": "Expression"
 							}
 						}
@@ -200,7 +200,7 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"filename": {
-								"value": "@activity('Get filename').output.value[0].filename",
+								"value": "@activity('Getfilename').output.value[0].filename",
 								"type": "Expression"
 							}
 						}

@@ -112,6 +112,8 @@
 			{
 				"name": "TranformationNB",
 				"type": "DatabricksNotebook",
+				"state": "Inactive",
+				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [
 					{
 						"activity": "Copy API to Staging",

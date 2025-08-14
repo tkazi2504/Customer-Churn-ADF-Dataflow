@@ -19,7 +19,7 @@
 					"value": "@dataset().filename",
 					"type": "Expression"
 				},
-				"folderPath": "unity",
+				"folderPath": "unity/rawfiles",
 				"fileSystem": "adbtransform"
 			},
 			"columnDelimiter": ",",

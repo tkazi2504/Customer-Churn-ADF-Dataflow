@@ -1,5 +1,5 @@
 {
-	"name": "pipeline1",
+	"name": "copy from api to adls_adb",
 	"properties": {
 		"activities": [
 			{
@@ -98,7 +98,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "adls_ds",
+						"referenceName": "adls_adb_csv_ds",
 						"type": "DatasetReference",
 						"parameters": {
 							"filename": {

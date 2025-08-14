@@ -11,6 +11,9 @@
 		"sqldb_ls_password": {
 			"value": ""
 		},
+		"adb_kv_ls_properties_typeProperties_baseUrl": {
+			"value": "https://cc-azure-proj.vault.azure.net/"
+		},
 		"adls_ls_properties_typeProperties_url": {
 			"value": "https://ccadfstrg.dfs.core.windows.net/"
 		},

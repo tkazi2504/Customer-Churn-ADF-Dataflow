@@ -15,6 +15,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'sqldb_ls'"
 		},
+		"adb_kv_ls_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://cc-azure-proj.vault.azure.net/"
+		},
 		"adls_ls_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://ccadfstrg.dfs.core.windows.net/"
@@ -153,6 +157,29 @@
 								}
 							}
 						]
+					},
+					{
+						"name": "TranformationNB",
+						"type": "DatabricksNotebook",
+						"state": "Inactive",
+						"onInactiveMarkAs": "Succeeded",
+						"dependsOn": [
+							{
+								"activity": "Copy API to Staging",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {}
 					}
 				],
 				"policy": {
@@ -425,7 +452,7 @@
 							"value": "@dataset().filename",
 							"type": "Expression"
 						},
-						"folderPath": "unity",
+						"folderPath": "unity/rawfiles",
 						"fileSystem": "adbtransform"
 					},
 					"columnDelimiter": ",",
@@ -628,6 +655,19 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/sqldb_ls')]"
 			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/adb_kv_ls')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureKeyVault",
+				"typeProperties": {
+					"baseUrl": "[parameters('adb_kv_ls_properties_typeProperties_baseUrl')]"
+				}
+			},
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/adls_ls')]",
